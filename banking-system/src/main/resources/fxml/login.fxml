@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           alignment="CENTER" style="-fx-background-color: #e8eef5;">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+    <VBox spacing="10" maxWidth="360" maxHeight="-Infinity" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0, 0, 3);">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+        <Label fx:id="titleLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #12355b;"/>
+        <Label text="Please log in to continue." wrapText="true" style="-fx-text-fill: #5b6770;"/>
+        <Label text="Username"/>
+        <TextField fx:id="usernameField" promptText="Username"/>
+        <Label text="Password"/>
+        <PasswordField fx:id="passwordField" promptText="Password"/>
+        <Button text="Log in" defaultButton="true" maxWidth="Infinity" onAction="#onLogin"
+                style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+        <Hyperlink text="New customer? Register here" onAction="#onRegister"/>
+    </VBox>
+</StackPane>

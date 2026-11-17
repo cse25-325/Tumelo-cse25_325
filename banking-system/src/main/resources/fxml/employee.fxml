@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #12355b;">
+            <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+            <Label fx:id="titleLabel" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Log out" onAction="#onLogout"/>
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Customers">
+                    <content>
+                        <VBox>
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                            <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="customerIdColumn" text="Customer no."/>
+                                    <TableColumn fx:id="customerNameColumn" text="Name"/>
+                                    <TableColumn fx:id="customerAddressColumn" text="Address"/>
+                                    <TableColumn fx:id="customerAccountsColumn" text="Accounts"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="All accounts">
+                    <content>
+                        <VBox>
+                            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                            <TableView fx:id="accountTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="accountNumberColumn" text="Account no."/>
+                                    <TableColumn fx:id="ownerColumn" text="Owner"/>
+                                    <TableColumn fx:id="accountTypeColumn" text="Type"/>
+                                    <TableColumn fx:id="branchColumn" text="Branch"/>
+                                    <TableColumn fx:id="balanceColumn" text="Balance"/>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Monthly interest">
+                    <content>
+                        <VBox spacing="12">
+                            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                            <Label wrapText="true" style="-fx-text-fill: #5b6770;"
+                                   text="Savings accounts earn 0.05% and Investment accounts 5% per month. An account that has already received interest this month is skipped."/>
+                            <Button text="Credit this month's interest" onAction="#onCreditInterest" style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           alignment="CENTER" style="-fx-background-color: #e8eef5;">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="10" maxWidth="420" maxHeight="-Infinity" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0, 0, 3);">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+        <Label fx:id="titleLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #12355b;"/>
+        <Label text="Password: at least 8 characters with a letter and a digit." wrapText="true" style="-fx-text-fill: #5b6770;"/>
+        <Label text="First name"/>
+        <TextField fx:id="firstNameField"/>
+        <Label text="Surname"/>
+        <TextField fx:id="surnameField"/>
+        <Label text="Address"/>
+        <TextArea fx:id="addressField" prefRowCount="2" wrapText="true"/>
+        <Label text="Choose a username"/>
+        <TextField fx:id="usernameField"/>
+        <Label text="Choose a password"/>
+        <PasswordField fx:id="passwordField"/>
+        <HBox spacing="10">
+            <Button text="Register" onAction="#onRegister" style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+            <Button text="Back to login" onAction="#onBack"/>
+        </HBox>
+    </VBox>
+</StackPane>

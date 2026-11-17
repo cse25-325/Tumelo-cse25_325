@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #e8eef5;">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #12355b;">
+            <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+            <Label fx:id="welcomeLabel" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Log out" onAction="#onLogout"/>
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="8" prefWidth="400">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="Your accounts"/>
+            <TableView fx:id="accountTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="accountNumberColumn" text="Account no."/>
+                    <TableColumn fx:id="accountTypeColumn" text="Type"/>
+                    <TableColumn fx:id="accountBalanceColumn" text="Balance"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="10">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label fx:id="balanceLabel" text="Select an account"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #12355b;"/>
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <tabs>
+                    <Tab text="Deposit">
+                        <content>
+                            <VBox spacing="10">
+                                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                <Label text="Deposit into the selected account." wrapText="true" style="-fx-text-fill: #5b6770;"/>
+                                <Label text="Amount"/>
+                                <TextField fx:id="depositAmount" promptText="Amount in BWP, e.g. 250.00"/>
+                                <Button text="Deposit" onAction="#onDeposit" style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+                            </VBox>
+                        </content>
+                    </Tab>
+                    <Tab text="Withdraw">
+                        <content>
+                            <VBox spacing="10">
+                                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                <Label text="Withdraw from the selected account (Investment and Cheque accounts only)."
+                                       wrapText="true" style="-fx-text-fill: #5b6770;"/>
+                                <Label text="Amount"/>
+                                <TextField fx:id="withdrawAmount" promptText="Amount in BWP, e.g. 250.00"/>
+                                <Button text="Withdraw" onAction="#onWithdraw" style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+                            </VBox>
+                        </content>
+                    </Tab>
+                    <Tab text="History">
+                        <content>
+                            <VBox spacing="8">
+                                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                <Label text="Transaction history of the selected account (newest first)."
+                                       wrapText="true" style="-fx-text-fill: #5b6770;"/>
+                                <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="whenColumn" text="Date"/>
+                                        <TableColumn fx:id="txTypeColumn" text="Type"/>
+                                        <TableColumn fx:id="amountColumn" text="Amount"/>
+                                        <TableColumn fx:id="balanceAfterColumn" text="Balance after"/>
+                                        <TableColumn fx:id="descriptionColumn" text="Description"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </content>
+                    </Tab>
+                    <Tab text="Open account">
+                        <content>
+                            <VBox spacing="10">
+                                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                                <Label text="Open another Savings, Investment or Cheque account."
+                                       wrapText="true" style="-fx-text-fill: #5b6770;"/>
+                                <Label text="Account type"/>
+                                <ComboBox fx:id="typeBox" promptText="Account type"/>
+                                <Label text="Branch"/>
+                                <ComboBox fx:id="branchBox"/>
+                                <Label text="Opening deposit"/>
+                                <TextField fx:id="openingDeposit"
+                                           promptText="Opening deposit (Investment: min BWP 500.00)"/>
+                                <VBox fx:id="employerBox" spacing="6" visible="false" managed="false">
+                                    <Label text="Cheque accounts need your employer's details."
+                                           wrapText="true" style="-fx-text-fill: #5b6770;"/>
+                                    <TextField fx:id="companyName" promptText="Company name"/>
+                                    <TextField fx:id="companyAddress" promptText="Company address"/>
+                                </VBox>
+                                <Button text="Open account" onAction="#onOpenAccount" style="-fx-background-color: #12355b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 18 8 18;"/>
+                            </VBox>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>
